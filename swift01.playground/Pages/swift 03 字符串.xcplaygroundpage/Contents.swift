@@ -49,3 +49,50 @@ print(message)
 //要在使用扩展分隔符的字符串中使用字符串插值，在反斜杠后使用匹配首尾井号数量的井号。
 print(#"6かける7は\#(6 * 7)."#)
 print("6かける7は\(6 * 7).")
+
+//检查一个字符串是否拥有特定的字符串前缀或者后缀，调用字符串的 hasPrefix(_:)和 hasSuffix(_:)方法
+let romeoAndJuliet = [
+    "Act 1 Scene 1: secne 1",
+    "Act 1 Scene 2: secne 2",
+    "Act 1 Scene 3: secne 3 Capulet's mansion",
+    "Act 1 Scene 4: secne 4 Capulet's mansion",
+    "Act 1 Scene 5: secne 5 Capulet's mansion",
+    "Act 2 Scene 1: secne 6 Capulet's mansion",
+    "Act 2 Scene 2: secne 7",
+    "Act 2 Scene 3: secne 8 cell",
+    "Act 2 Scene 4: secne 9",
+    "Act 2 Scene 5: secne 10 Capulet's mansion",
+    "Act 2 Scene 6: secne 11 cell"
+]
+var act1SceneCount = 0
+for scene in romeoAndJuliet {
+    if scene.hasPrefix("Act 1 ") {
+//用 hasPrefix(_:)方法操作 romeoAndJuliet数组来计算第一场场景的数量：
+        act1SceneCount += 1
+    }
+}
+
+print("在 \(act1SceneCount) 场景在 Act 1里面")
+ var act2Count = 0
+for scene in romeoAndJuliet {
+    if scene.hasPrefix("Act 2") {
+        //查找有几个前缀带 Act 2 的
+        act2Count += 1
+    }
+}
+print ("在\(act2Count)场景在 Act 2 里面")
+
+
+//用 hasSuffix() 来 查找带什么后缀的元素
+var mansionCount = 0
+var cellCount = 0
+for scene in romeoAndJuliet {
+    if scene.hasSuffix("Capulet's mansion") {
+        mansionCount += 1
+    } else if scene.hasSuffix("cell") {
+        cellCount += 1
+    }
+}
+print("有\(mansionCount)场mansion场景和有\(cellCount)场cell景")
+
+
